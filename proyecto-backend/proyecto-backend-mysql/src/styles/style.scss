@@ -1,0 +1,33 @@
+@import './colors';
+@import './brand';
+@import './register';
+@import './login';
+html{
+    overflow-x: hidden;
+}
+*{
+    margin: 0;
+    padding: auto;
+    box-sizing: border-box;
+}
+body{
+    background-color: $background;
+}
+
+// //transition-group config:
+// .fade-enter{
+//     opacity: 0;
+//  }
+//  .fade-exit{
+//     opacity: 1;
+//  }
+//  .fade-enter-active{
+//     opacity: 1;
+//  }
+//  .fade-exit-active{
+//     opacity: 0;
+//  }
+//  .fade-enter-active,
+//  .fade-exit-active{
+//     transition: opacity 500ms;
+//  }

@@ -5,13 +5,16 @@ const {
     findUserById, 
     createUser,
     updateUser, 
-    deleteUser } = require('../controller/userController');
+    deleteUser, 
+    findLoggedUser} = require('../controller/userController');
     const { ValidateUser } = require('../models/user.model');
 
 
 router.get('/user', getUsers);
 
-router.get('/user/:id',findUserById)
+router.get('/user/logged/:email', findLoggedUser);
+
+router.get('/user/id/:id',findUserById)
 
 router.post('/user',ValidateUser, createUser);
 

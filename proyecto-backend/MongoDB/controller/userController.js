@@ -30,10 +30,18 @@ const deleteUser = async (req,res) => {
     res.json({ 'mensaje': 'Usuario eliminado' });
 }
 
+const findLoggedUser = async (req,res) =>{
+    const { email } = req.params;
+    const user = await User.findOne({ email: email});
+    res.status(201).json(user);
+}
+
 module.exports= {
     getUsers,
     createUser,
     findUserById,
     updateUser,
     deleteUser,
+    findLoggedUser,
 }
+//instalar bycrypt
