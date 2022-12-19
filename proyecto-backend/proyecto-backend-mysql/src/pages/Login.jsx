@@ -27,11 +27,22 @@ export default function Login() {
             body: JSON.stringify(data)
         }).then((res)=>res.json())
         .then((token) => {
-            if(!localStorage.getItem("token"))//esto es para testear
+            if(localStorage.getItem("token"))//si hay un token
             {
-                localStorage.setItem("token", token.tokenAccess);
+                localStorage.removeItem("token");//lo borro
+                localStorage.setItem("token", token.tokenAccess)//agrego el nuevo
+            }else{
+                localStorage.setItem("token", token.tokenAccess);//simplemente lo agrego
             }
-            login.setUser(token.user);
+            if(sessionStorage.getItem('userLogged'))//misma logica
+            {
+                sessionStorage.removeItem('userLogged');
+                sessionStorage.setItem("userLogged", JSON.stringify(token.user));
+            }else{
+                sessionStorage.setItem("userLogged", JSON.stringify(token.user));
+            }
+            let userLogged = JSON.parse(sessionStorage.getItem('userLogged'));
+            login.setUser(userLogged);//seteo el usuario en el context
             navigate('/');
         } )
         .catch((err)=> console.log(err));
@@ -45,11 +56,11 @@ export default function Login() {
             <h2>Iniciar sesion:</h2>
             <form onSubmit={handleSubmit}>
                 <div className='login-box-input'>
-                    <label htmlFor="email">Email</label>
+                    <label htmlFor="email">Email:</label>
                     <input type="email" id='email' name='email' placeholder='email@gmail.com'  onChange={handleInputchange}/>
                 </div>
                 <div className='login-box-input'>
-                    <label htmlFor="pass">Contraseña</label>
+                    <label htmlFor="pass">Contraseña:</label>
                     <input type="password" id='pass' name='password' placeholder='Contraseña...' onChange={handleInputchange}/>
                 </div>
                 <div className='login-box-button'>

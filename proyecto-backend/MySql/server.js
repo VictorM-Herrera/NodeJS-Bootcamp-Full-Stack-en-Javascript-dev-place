@@ -14,6 +14,7 @@ server.use(express.urlencoded({extended: true}));
 
 //rutas:
 server.use(router);
+server.use('/upload', express.static('upload'));
 
 server.listen(port, ()=>{
     console.log(`Servidor corriendo en el puerto: ${port}`);

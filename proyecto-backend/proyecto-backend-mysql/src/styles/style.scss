@@ -2,6 +2,12 @@
 @import './brand';
 @import './register';
 @import './login';
+@import './cards';
+@import './footer';
+@import './profile';
+@import './carrousel';
+@import './banner';
+
 html{
     overflow-x: hidden;
 }
@@ -10,8 +16,16 @@ html{
     padding: auto;
     box-sizing: border-box;
 }
+p{
+    margin-bottom: 0 !important;
+}
 body{
     background-color: $background;
+    //background-image: linear-gradient(to left, $s-dark1, $secondary );;
+}
+.bottom-footer{
+    position: relative;
+    min-height: 100vh;
 }
 
 // //transition-group config:

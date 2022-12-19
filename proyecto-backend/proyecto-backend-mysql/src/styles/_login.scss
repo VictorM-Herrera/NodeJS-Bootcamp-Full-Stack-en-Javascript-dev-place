@@ -13,6 +13,10 @@
         padding-bottom: 15px;
         input{
             border: 2px solid $secondary;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            background-color: $background;
             &:focus{
                 outline: solid $primary;
             }
@@ -40,4 +44,5 @@
 .login-box-center{
     display: flex;
     justify-content: center;
+    padding-top: 6rem;
 }

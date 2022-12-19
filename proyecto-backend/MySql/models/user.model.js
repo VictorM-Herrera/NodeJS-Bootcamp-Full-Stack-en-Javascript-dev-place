@@ -7,7 +7,7 @@ const validateRequest = require('../middlewares/validateRequest');
 
 
 const User = sequelize.define('users',{
-    id:{
+    user_id:{
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true
@@ -32,7 +32,7 @@ const User = sequelize.define('users',{
         type: Sequelize.BOOLEAN,
         defaultValue: true
     }
-} )
+}, {timestamps:false} )
 
 const ValidateUser = (req,res,next) => {
     const schema = Joi.object({

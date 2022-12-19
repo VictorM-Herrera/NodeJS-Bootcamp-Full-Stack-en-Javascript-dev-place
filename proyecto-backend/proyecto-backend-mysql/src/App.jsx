@@ -1,27 +1,36 @@
+//bootstrap:
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'bootstrap-css-only/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';
+//hooks:
 import { useEffect, useState } from 'react';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Brand from "./components/Brand";
 import { UserContext } from './js/UserContext';
+//componentes:
+import Brand from "./components/Brand";
+import Footer from './components/Footer';
 import Home from "./pages/Home";
 import Login from "./pages/Login";
+import Profile from './pages/Profile';
 import Register from "./pages/Register";
-import Test from './pages/Test';
-import './styles/style.css'
+//estilos:
+import 'swiper/css';
+import 'swiper/css/free-mode';
+import './styles/style.css';
+import 'aos/dist/aos.css'; 
+
 function App() {
   const [user, setUser] = useState(null);
-  // useEffect(()=>{ 
-  //       const userLogged = localStorage.getItem('token');    
-  //       if(!userLogged){   
-  //         setUser(null) 
-  //       }else{
-  //         setUser(userLogged)
-  //       }   
-  //     }, [])
+  useEffect(()=>{ 
+        const userLogged = JSON.parse(sessionStorage.getItem('userLogged'))   
+        if(!userLogged){   
+          setUser(null) 
+        }else{
+          setUser(userLogged)
+        }   
+      }, [])
   return (
-    <>
+    <><div className='bottom-footer'>
     <UserContext.Provider value={{user, setUser}}>
       <BrowserRouter>
       <Brand/>
@@ -29,10 +38,12 @@ function App() {
         <Route path="/" element={<Home/>}/>
         <Route path="/SignUp" element={<Register/>}/>
         <Route path="/Login" element={<Login/>}/>
-        <Route path="/test" element={<Test/>}/>  
+        <Route path="/profile" element={<Profile/>}/>  
       </Routes>
+      <Footer/>
       </BrowserRouter>
     </UserContext.Provider>
+    </div>
     </>
   )
 }

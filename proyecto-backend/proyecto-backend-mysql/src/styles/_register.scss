@@ -13,6 +13,10 @@
         padding-bottom: 15px;
         input{
             border: 2px solid $secondary;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            background-color: $background;
             &:focus{
                 outline: solid $primary;
             }
@@ -40,9 +44,7 @@
 .register-box-center{
     display: flex;
     justify-content: center;
-    .register-box-title{
-
-    }
+    padding-top: 6rem;
 }
 .alert-box-err{
     width: 100%;

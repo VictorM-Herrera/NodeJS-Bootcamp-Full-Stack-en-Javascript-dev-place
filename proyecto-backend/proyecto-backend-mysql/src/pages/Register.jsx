@@ -36,6 +36,7 @@ export default function Register() {
             }else{
                 console.log(data);
                 setAlert(<div className='alert-box-success'>Usuario registrado</div>);
+                
             }
         })
         .catch((err)=> {
@@ -51,20 +52,20 @@ export default function Register() {
                 <>{alert}</>
             <form onSubmit={handleSubmit}>
                 <div className='register-box-input'>
-                    <label htmlFor="name">Nombre</label>
+                    <label htmlFor="name">Nombre:</label>
                     <input type="text" id='name' name='first_name' placeholder='Nombre...' onChange={handleInputchange} required/>
                 </div>
                 <div className='register-box-input'>
-                    <label htmlFor="last_name">Apellido</label>
+                    <label htmlFor="last_name">Apellido:</label>
                     <input type="text" id='last_name' name='last_name' placeholder='Apellido...' onChange={handleInputchange} required/>
                 </div>
                 <div className='register-box-input'>
-                    <label htmlFor="email">Email</label>
+                    <label htmlFor="email">Email:</label>
                     <input type="text" id='email' name='email' placeholder='email@gmail.com' onChange={handleInputchange} required/>
                 </div>
                 <div className='register-box-input'>
-                    <label htmlFor="pass">Contraseña</label>
-                    <input type="number" id='pass' name='password' placeholder='Contraseña...' onChange={handleInputchange} required/>
+                    <label htmlFor="pass">Contraseña:</label>
+                    <input type="password" id='pass' name='password' placeholder='Contraseña...' onChange={handleInputchange} required/>
                 </div>
                 <div className='register-box-button'>
                     <button type='submit'>Enviar</button>

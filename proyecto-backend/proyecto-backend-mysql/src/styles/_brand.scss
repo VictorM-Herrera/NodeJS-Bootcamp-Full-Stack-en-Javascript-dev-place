@@ -1,4 +1,94 @@
+.nav-box-fixed{
+    position: fixed;
+    width: 100%;
+    z-index: 1000000;
+}
 .nav-box{
+    transition: 0.7s;
+    display: flex;
+    width:100vw;
+    height: 3rem;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    background: transparent;
+    .nav-box-session{
+        width: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+
+    }
+    .nav-box-logo{
+        width: 3rem;
+        transition: width .6s;
+        &:hover{
+            width: 4rem;
+        }
+    }
+    .nav-box-search{
+        display: flex;
+        gap: 1rem;
+        input[type=text]{
+            width: 19rem;
+            box-shadow: 3px 3px 3px $p-dark;
+            outline: none;
+            border: none;
+            border-radius: 5px;
+        }
+        .nav-box-search-button{
+            border: none;
+            box-shadow: 3px 3px 3px $p-dark;
+            border-radius: 5px;
+            outline: none;
+        }
+    }
+    .nav-box-session-buttons{
+        width: 50%;
+        padding: 0 !important;
+        margin: 0 !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        list-style: none;
+        gap: 5rem;
+        a{
+            color: white;
+            width: 100px;
+            font-family: 'Roboto', sans-serif;
+            &:hover{
+                font-size: large;
+            }
+        }
+    }
+    @media(max-width: 820px)
+    {
+       display: block;
+       height: 7rem;
+       .nav-box-session{
+        width: 100%;
+        justify-content: center;
+        gap: 5rem;
+       }
+       .nav-box-session-buttons{
+        width: 100%;
+        margin-top: 1rem !important;
+       }
+    }
+    @media (max-width:520px) {
+        display: flex;
+        height: 3rem;
+        .nav-box-session-buttons{
+            margin-top: 0 !important;
+           }
+        .nav-box-search{
+            display: none;
+        }
+    }
+}
+
+.nav-box-active{
+    transition: 0.7s;
     margin: 10px;
     height: 3rem;
     display: flex;
@@ -8,6 +98,13 @@
     background-color: $primary;
     border-radius: 5px;
     box-shadow: 3px 3px 5px $p-dark;
+    .nav-box-session{
+        width: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+
+    }
     .nav-box-logo{
         width: 3rem;
         transition: width .6s;
@@ -33,14 +130,14 @@
         }
     }
         .nav-box-session-buttons{
-            width: 16rem;
+            width: 50%;
             padding: 0 !important;
             margin: 0 !important;
             display: flex;
             align-items: center;
             justify-content: center;
             list-style: none;
-            gap: 1rem;
+            gap: 5rem;
             a{
                 color: black;
                 width: 100px;
@@ -49,6 +146,30 @@
                     font-size: large;
                     color: $p-dark;
                 }
+            }
+        }
+        @media(max-width: 820px)
+        {
+           display: block;
+           height: 7rem;
+           .nav-box-session{
+            width: 100%;
+            justify-content: center;
+            gap: 5rem;
+           }
+           .nav-box-session-buttons{
+            width: 100%;
+            margin-top: 1rem !important;
+           }
+        }
+        @media (max-width:520px) {
+            display: flex;
+            height: 3rem;
+            .nav-box-session-buttons{
+                margin-top: 0 !important;
+               }
+            .nav-box-search{
+                display: none;
             }
         }
     

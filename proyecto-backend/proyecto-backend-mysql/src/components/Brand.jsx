@@ -1,18 +1,34 @@
 import React from 'react'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { Link } from 'react-router-dom';
 import { UserContext } from '../js/UserContext'
 
 export default function Brand() {
     const login = useContext(UserContext);
+    const [navBar, setNavBar] = useState(false)
+    
+    const chancheOnScroll = () => {
+        if(window.scrollY >= 48)
+        {
+            setNavBar(true);
+        }else{
+            setNavBar(false);
+        }
+    }
+    
+    window.addEventListener('scroll', chancheOnScroll);
+
     if(login.user)
     {
         return (
-            <div className='nav-box'>
-                <Link to='/'><img src="./images/Logo_TV_2015.png" className='nav-box-logo' alt="logo" /></Link>
-                <div className='nav-box-search'>
-                    <input type="text" placeholder='buscar...'/>
-                    <Link to=""><button className='nav-box-search-button'><i class="fas fa-search"></i></button></Link>            
+            <div className='nav-box-fixed'>
+            <div className={navBar ? 'nav-box-active' : 'nav-box'}>
+                <div className='nav-box-session'>
+                    <Link to='/'><img src="./images/Logo_TV_2015.png" className='nav-box-logo' alt="logo" /></Link>
+                    <div className='nav-box-search'>
+                        <input type="text" placeholder='buscar...'/>
+                        <Link to=""><button className='nav-box-search-button'><i class="fas fa-search"></i></button></Link>            
+                    </div>
                 </div>
                 {/* <div className='nav-box-session'> */}
                     <ul className='nav-box-session-buttons'>
@@ -22,7 +38,7 @@ export default function Brand() {
                             </Link>
                         </li>
                         <li className="nav-box-session-link">
-                            <Link to='/' id='nav-box-session-link-profile'>
+                            <Link to='/profile' id='nav-box-session-link-profile'>
                                 <i className="fas fa-user-circle"></i>
                                 {login.user.first_name}
                             </Link>
@@ -30,14 +46,18 @@ export default function Brand() {
                     </ul>
                 {/* </div> */}
             </div>
+            </div>
         ) 
     }else{
         return (
-            <div className='nav-box'>
+            <div className='nav-box-fixed'>
+            <div className={navBar ? 'nav-box-active' : 'nav-box'}>
+                <div className='nav-box-session'>
                 <Link to='/'><img src="./images/Logo_TV_2015.png" className='nav-box-logo' alt="logo" /></Link>
                 <div className='nav-box-search'>
                     <input type="text" placeholder='buscar...'/>
                     <Link to=""><button className='nav-box-search-button'><i className="fas fa-search"></i></button></Link>            
+                </div>
                 </div>
                 {/* <div className='nav-box-session'> */}
                     <ul className='nav-box-session-buttons'>
@@ -49,6 +69,7 @@ export default function Brand() {
                         </li>
                     </ul>
                 {/* </div> */}
+            </div>
             </div>
         ) 
     }

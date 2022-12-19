@@ -1,0 +1,17 @@
+.carrousel-box-center{
+    padding-top: 6rem;
+    display: flex;
+    justify-content: center;
+    @media (max-width: 820px) {
+        padding-top: 8rem;
+    }
+}
+.carrousel-box{
+    width: 80%;
+    padding: 10px 0;
+    .carrousel-card-center{
+        display: flex;
+        justify-content: center;
+        padding: 5px 0;
+    }
+}

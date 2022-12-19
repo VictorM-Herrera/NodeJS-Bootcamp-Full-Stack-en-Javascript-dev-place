@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken');
 
 userController.getAllUsers = async (req,res) =>{
     const response = await User.findAll() 
-        .then((data)=> {
+        .then((data) => {
             const res = { error: false, data: data}
             return res;
         }).catch((error) => {
@@ -39,13 +39,14 @@ userController.createUser = async (req,res) => {
     //     console.log(err);
     // }
     try {
-        if(req.file === null)
+        let urlImage;
+        if(req.file === undefined)
         {
-            return res.status(400).send({message: 'No hay un archivo subido'});
+            urlImage = null
+        }else{
+            const url = req.protocol + '://' + req.get('host');
+            urlImage = url + '/upload/' + req.file.filename;
         }
-        const url = req.protocol + '://' + req.get('host');
-        const urlImage = url + '/upload/' + req.file.filename;
-
         const modelData = {
             first_name: req.body.first_name,
             last_name: req.body.last_name,
@@ -70,7 +71,7 @@ userController.getUserById = async (req,res) => {
     try{
         const { id } = req.params;
         const response = await User.findAll({
-            where: {id:id}
+            where: {user_id:id}
         })
         .then((data)=>{
             const res = { error: false, data: data};
@@ -89,17 +90,26 @@ userController.getUserById = async (req,res) => {
 userController.updateUserById = async (req,res) => {
     try{
         const { id } = req.params;
+        let urlImage;
+        if(req.file === undefined)
+        {
+            urlImage=null;
+        }else{
+            const url = req.protocol + '://' + req.get('host');
+            urlImage = url + '/upload/' + req.file.filename;
+        }
         const modelData = {
             first_name: req.body.first_name,
             last_name: req.body.last_name,
             email:req.body.email,
+            image: urlImage
         }
         if(req.body.password)//si hay un nuevo password
         {
             modelData={...modelData, ...{password: bcrypt.hashSync(req.body.password,10)}}; //lo almaceno en modeldata, sin borrar lo que ya habia almacenado
         }
         const response = await User.update(modelData, {
-            where: {id:id}
+            where: {user_id:id}
         })
         .then((data)=>{
             const res = { error: false, data: data, message: "Usuario actualizado"};
@@ -119,7 +129,7 @@ userController.deleteUserById = async (req, res) => {
     try{
         const { id } = req.params;
         const response = await User.destroy({
-            where: {id:id}
+            where: {user_id:id}
         })
         .then((data)=>{
             const res = { error: false, data: data, message: "Usuario Eliminado"};

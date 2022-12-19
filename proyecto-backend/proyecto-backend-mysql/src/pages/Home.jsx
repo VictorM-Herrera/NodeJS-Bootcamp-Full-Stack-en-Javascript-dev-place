@@ -1,4 +1,6 @@
 import React, { useContext } from 'react'
+import Cards from '../components/Cards';
+import Carrousel from '../components/Carrousel';
 import { UserContext } from '../js/UserContext';
 
 export default function Home() {
@@ -6,14 +8,20 @@ export default function Home() {
   
   if(!login.user){
     return(
-      <div>
-        No hay Usuario
-      </div>
+      <>
+        <div>
+          <Carrousel/>
+        </div>
+        <div className='card-section-center'>
+          <Cards/>
+        </div>
+      </>
+
     )
   }else{
     return (
-      <div>
-        Home
+      <div className='card-section-center'>
+        <Cards/>
       </div>
     )
   }
