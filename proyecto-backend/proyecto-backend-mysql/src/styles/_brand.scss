@@ -31,14 +31,14 @@
         gap: 1rem;
         input[type=text]{
             width: 19rem;
-            box-shadow: 3px 3px 3px $p-dark;
+            box-shadow: 3px 3px 3px rgb(16, 96, 224);
             outline: none;
             border: none;
             border-radius: 5px;
         }
         .nav-box-search-button{
             border: none;
-            box-shadow: 3px 3px 3px $p-dark;
+            box-shadow: 3px 3px 3px rgb(16, 96, 224);
             border-radius: 5px;
             outline: none;
         }
@@ -63,6 +63,7 @@
     }
     @media(max-width: 820px)
     {
+        transition: 0s;
        display: block;
        height: 7rem;
        .nav-box-session{
@@ -76,6 +77,7 @@
        }
     }
     @media (max-width:520px) {
+        transition: 0s;
         display: flex;
         height: 3rem;
         .nav-box-session-buttons{
@@ -150,6 +152,7 @@
         }
         @media(max-width: 820px)
         {
+            transition: 0s;
            display: block;
            height: 7rem;
            .nav-box-session{
@@ -163,6 +166,7 @@
            }
         }
         @media (max-width:520px) {
+            transition: 0s;
             display: flex;
             height: 3rem;
             .nav-box-session-buttons{
