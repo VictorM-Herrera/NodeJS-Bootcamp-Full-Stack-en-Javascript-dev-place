@@ -13,7 +13,9 @@ const Product = sequelize.define('products',{
         type: Sequelize.STRING,
         unique: true
     },
-    description: Sequelize.STRING,
+    description:{
+        type: Sequelize.TEXT 
+    },
     price:{
         type: Sequelize.DOUBLE,
         defaultValue: 0

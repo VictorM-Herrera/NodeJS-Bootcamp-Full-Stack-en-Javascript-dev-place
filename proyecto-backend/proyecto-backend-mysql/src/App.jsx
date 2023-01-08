@@ -6,6 +6,7 @@ import 'mdbreact/dist/css/mdb.css';
 import { useEffect, useState } from 'react';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { UserContext } from './js/UserContext';
+import { BrandContext } from './js/BrandContext';
 //componentes:
 import Brand from "./components/Brand";
 import Footer from './components/Footer';
@@ -21,6 +22,8 @@ import 'aos/dist/aos.css';
 
 function App() {
   const [user, setUser] = useState(null);
+  const [brand, setBrand] = useState(null);
+
   useEffect(()=>{ 
         const userLogged = JSON.parse(sessionStorage.getItem('userLogged'))   
         if(!userLogged){   
@@ -29,19 +32,22 @@ function App() {
           setUser(userLogged)
         }   
       }, [])
+  
   return (
     <><div className='bottom-footer'>
     <UserContext.Provider value={{user, setUser}}>
-      <BrowserRouter>
-      <Brand/>
-      <Routes>
-        <Route path="/" element={<Home/>}/>
-        <Route path="/SignUp" element={<Register/>}/>
-        <Route path="/Login" element={<Login/>}/>
-        <Route path="/profile" element={<Profile/>}/>  
-      </Routes>
-      <Footer/>
-      </BrowserRouter>
+      <BrandContext.Provider value={{brand, setBrand}}>
+        <BrowserRouter>
+        <Brand/>
+        <Routes>
+          <Route path="/" element={<Home/>}/>
+          <Route path="/SignUp" element={<Register/>}/>
+          <Route path="/Login" element={<Login/>}/>
+          <Route path="/profile" element={<Profile/>}/>  
+        </Routes>
+        <Footer/>
+        </BrowserRouter>
+      </BrandContext.Provider>
     </UserContext.Provider>
     </div>
     </>

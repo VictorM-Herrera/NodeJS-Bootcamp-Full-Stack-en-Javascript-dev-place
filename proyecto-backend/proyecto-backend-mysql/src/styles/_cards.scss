@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     padding-top: 3rem;
-    padding-bottom: 6rem;
+    padding-bottom: 13rem;
 }
 .card-section{
     display: flex;
@@ -20,6 +20,17 @@
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    .card-fav-button{
+        position: absolute;
+        border: none;
+        z-index: 2;
+        right: 0;
+        top: 0;
+        background-color: transparent;
+        &:active{
+            outline: none;
+        }
+    }
     .card-img{
         display: flex;
         justify-content: center;

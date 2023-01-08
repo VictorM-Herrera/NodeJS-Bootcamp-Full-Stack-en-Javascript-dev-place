@@ -39,7 +39,7 @@ categoryController.deleteCategoryById = async (req, res) => {
             where: { category_id: id }
         })
         .then((data) => {
-            const res = { error: false, menssage: 'Categoria creada'}
+            const res = { error: false, menssage: 'Categoria borrada'}
             return res;
         }).catch(err => {
             const res = { error: true, message: err}

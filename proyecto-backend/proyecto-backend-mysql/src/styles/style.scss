@@ -26,6 +26,9 @@ body{
 .bottom-footer{
     position: relative;
     min-height: 100vh;
+    @media (max-height: 660px) {
+        min-height: 110vh;
+    }
 }
 
 // //transition-group config:

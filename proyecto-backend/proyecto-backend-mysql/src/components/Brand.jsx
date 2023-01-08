@@ -1,18 +1,33 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useContext, useState } from 'react'
 import { Link } from 'react-router-dom';
 import { UserContext } from '../js/UserContext'
+import { BrandContext } from '../js/BrandContext';
 
 export default function Brand() {
     const login = useContext(UserContext);
+    const brandLocation = useContext(BrandContext);
     const [navBar, setNavBar] = useState(false)
+
+    useEffect(() => {
+      if (brandLocation.brand == 1) {
+        setNavBar(true);
+      }else{
+        setNavBar(false)
+      }
+    }, [brandLocation.brand])
     
     const chancheOnScroll = () => {
-        if(window.scrollY >= 48)
+        if(brandLocation.brand == 0)
         {
-            setNavBar(true);
+            if(window.scrollY >= 48)
+            {
+                setNavBar(true);
+            }else{
+                setNavBar(false);
+            }
         }else{
-            setNavBar(false);
+            setNavBar(true);
         }
     }
     

@@ -1,3 +1,21 @@
 .profile-box{
+    width: 50%;
+    height: 20rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    box-shadow:  0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+    .profile-box-img{
+        height: 70%;
+        
+    }
+}
+
+.profile-box-center{
     padding-top: 6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

@@ -1,7 +1,10 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { SwitchTransition,  CSSTransition} from 'react-transition-group';
+import { BrandContext } from '../js/BrandContext';
 
 export default function Register() {
+    const brandLocation = useContext(BrandContext);
+    brandLocation.setBrand(1);
     const [alert, setAlert] = useState(<></>)
     const [data, setData] = useState({
         first_name:'',

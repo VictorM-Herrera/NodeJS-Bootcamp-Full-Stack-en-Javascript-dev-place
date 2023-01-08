@@ -6,6 +6,7 @@ import Card from './Card';
 export default function Carrousel() {
   return (
     <div className='carrousel-box-center'>
+        <h3>Productos destacados:</h3>
         <div className='carrousel-box'>
             <Swiper
                 freeMode={true}

@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
 import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { BrandContext } from '../js/BrandContext';
 import { UserContext } from '../js/UserContext';
 
 export default function Login() {
+    const brandLocation = useContext(BrandContext);
+    brandLocation.setBrand(1);
     const [data, setData] = useState({
         email:'',
         password:''

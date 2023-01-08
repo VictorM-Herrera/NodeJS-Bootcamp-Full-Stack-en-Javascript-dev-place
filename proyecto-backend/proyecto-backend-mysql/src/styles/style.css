@@ -244,6 +244,7 @@
   display: flex;
   justify-content: center;
   padding-top: 6rem;
+  padding-bottom: 6rem;
 }
 
 .alert-box-err {
@@ -312,13 +313,14 @@
   display: flex;
   justify-content: center;
   padding-top: 6rem;
+  padding-bottom: 2rem;
 }
 
 .card-section-center {
   display: flex;
   justify-content: center;
   padding-top: 3rem;
-  padding-bottom: 6rem;
+  padding-bottom: 13rem;
 }
 
 .card-section {
@@ -338,6 +340,17 @@
   justify-content: center;
   align-items: center;
   overflow: hidden;
+}
+.card .card-fav-button {
+  position: absolute;
+  border: none;
+  z-index: 2;
+  right: 0;
+  top: 0;
+  background-color: transparent;
+}
+.card .card-fav-button:active {
+  outline: none;
 }
 .card .card-img {
   display: flex;
@@ -372,28 +385,42 @@
 }
 
 .footer-box {
-  background-image: linear-gradient(to left, #457387, #8fbdd3);
-  height: 3rem;
   bottom: 0;
   position: absolute;
   width: 100%;
 }
 
-.footer-box-links {
-  display: flex;
-  justify-content: space-around;
-  color: #fff;
-  align-items: center;
+.footer-box-text {
+  margin-top: 1rem;
 }
 
 .profile-box {
+  width: 50%;
+  height: 20rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+.profile-box .profile-box-img {
+  height: 70%;
+}
+
+.profile-box-center {
   padding-top: 6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .carrousel-box-center {
   padding-top: 6rem;
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 @media (max-width: 820px) {
   .carrousel-box-center {
@@ -504,6 +531,11 @@ body {
 .bottom-footer {
   position: relative;
   min-height: 100vh;
+}
+@media (max-height: 660px) {
+  .bottom-footer {
+    min-height: 110vh;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,14 +1,9 @@
 .footer-box{
-    background-image: linear-gradient(to left, $s-dark1, $secondary );
-    height: 3rem;
     bottom: 0;
     position: absolute;
     width: 100%;
 }
-.footer-box-links{
-    display: flex;
-    justify-content: space-around;
-    color: #fff;
-    align-items: center;
-    
+
+.footer-box-text{
+    margin-top: 1rem;
 }
