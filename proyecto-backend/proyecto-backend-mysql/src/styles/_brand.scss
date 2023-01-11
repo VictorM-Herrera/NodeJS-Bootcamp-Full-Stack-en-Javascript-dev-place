@@ -186,6 +186,14 @@
 }
 #nav-box-session-link-profile{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.nav-box-session-link-img{
+    height: 2rem;
+    width: 2rem;
+    border-radius: 100%;   
 }

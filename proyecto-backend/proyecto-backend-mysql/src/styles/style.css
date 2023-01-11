@@ -192,8 +192,16 @@
 
 #nav-box-session-link-profile {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.nav-box-session-link-img {
+  height: 2rem;
+  width: 2rem;
+  border-radius: 100%;
 }
 
 .register-box {
@@ -244,7 +252,7 @@
   display: flex;
   justify-content: center;
   padding-top: 6rem;
-  padding-bottom: 6rem;
+  padding-bottom: 9.4rem;
 }
 
 .alert-box-err {
@@ -396,7 +404,7 @@
 
 .profile-box {
   width: 50%;
-  height: 20rem;
+  height: 30rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -404,11 +412,64 @@
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 }
 .profile-box .profile-box-img {
-  height: 70%;
+  height: 30%;
+  overflow: hidden;
+  margin-top: 10px;
+}
+.profile-box .profile-box-img img {
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+}
+.profile-box .profile-box-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 40%;
+}
+.profile-box .profile-box-info .btn {
+  width: 100%;
+}
+.profile-box .profile-box-buttons {
+  height: 30%;
+  display: flex;
+  align-items: center;
+}
+
+.profile-box-edit {
+  width: 50%;
+  height: 30rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+.profile-box-edit .profile-box-img {
+  height: 30%;
+  overflow: hidden;
+  margin-top: 10px;
+}
+.profile-box-edit .profile-box-img img {
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+}
+.profile-box-edit .profile-box-inputs {
+  display: flex;
+  flex-direction: column;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.profile-box-edit .profile-box-button-edit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .profile-box-center {
   padding-top: 6rem;
+  padding-bottom: 11rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -510,6 +571,103 @@
   }
 }
 
+.card-info-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 6rem;
+  padding-bottom: 16rem;
+}
+
+.card-info-box {
+  display: flex;
+  overflow: hidden;
+  justify-content: center;
+  width: 80%;
+}
+.card-info-box .card-info-img {
+  width: 22rem;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 1rem;
+  padding-left: 1rem;
+}
+.card-info-box .card-info-img img {
+  width: 20rem;
+  border-radius: 50%;
+  box-shadow: 2px 2px 5px;
+}
+.card-info-box .card-info-text {
+  margin-left: 10px;
+  text-align: justify;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 500px;
+}
+
+.card-info-numbers {
+  width: 80%;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+}
+
+.cart-box-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 6rem;
+  padding-bottom: 10rem;
+}
+
+.cart-box {
+  width: 100%;
+}
+.cart-box .cart-box-title {
+  margin-left: 1rem;
+}
+.cart-box h2 {
+  margin-left: 1rem;
+}
+
+.cart-box-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.cart-box-content .cart-box-row {
+  width: 100%;
+  box-shadow: 2px 2px 5px rgb(125, 124, 124), 2px -2px 5px rgb(125, 124, 124);
+  display: flex;
+  flex-direction: column;
+}
+.cart-box-content .cart-box-row .cart-box-data {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.cart-box-content .cart-box-row .cart-box-data .cart-box-data-img {
+  display: flex;
+  justify-content: center;
+}
+.cart-box-content .cart-box-row .cart-box-data .cart-box-data-img img {
+  height: 12rem;
+  border-radius: 25%;
+  box-shadow: 2px 2px 5px;
+}
+.cart-box-content .cart-box-row .cart-box-data .cart-box-data-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 html {
   overflow-x: hidden;
 }
@@ -531,11 +689,6 @@ body {
 .bottom-footer {
   position: relative;
   min-height: 100vh;
-}
-@media (max-height: 660px) {
-  .bottom-footer {
-    min-height: 110vh;
-  }
 }
 
 /*# sourceMappingURL=style.css.map */

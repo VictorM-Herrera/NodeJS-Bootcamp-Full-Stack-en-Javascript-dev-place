@@ -93,7 +93,7 @@ userController.updateUserById = async (req,res) => {
         let urlImage;
         if(req.file === undefined)
         {
-            urlImage=null;
+            
         }else{
             const url = req.protocol + '://' + req.get('host');
             urlImage = url + '/upload/' + req.file.filename;

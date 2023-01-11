@@ -48,13 +48,13 @@ export default function Brand() {
                 {/* <div className='nav-box-session'> */}
                     <ul className='nav-box-session-buttons'>
                     <li className='nav-box-session-link'>
-                            <Link to="/">
+                            <Link to="/cart">
                                 <i class="fas fa-shopping-cart"></i>
                             </Link>
                         </li>
                         <li className="nav-box-session-link">
                             <Link to='/profile' id='nav-box-session-link-profile'>
-                                <i className="fas fa-user-circle"></i>
+                            {login.user.image !=null ? <img src={login.user.image} className='nav-box-session-link-img'/> : <i className="fas fa-user-circle"></i>}
                                 {login.user.first_name}
                             </Link>
                         </li>

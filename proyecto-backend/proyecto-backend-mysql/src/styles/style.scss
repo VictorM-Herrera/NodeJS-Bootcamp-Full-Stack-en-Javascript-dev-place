@@ -7,6 +7,8 @@
 @import './profile';
 @import './carrousel';
 @import './banner';
+@import './cardinfo';
+@import './cart';
 
 html{
     overflow-x: hidden;
@@ -26,9 +28,6 @@ body{
 .bottom-footer{
     position: relative;
     min-height: 100vh;
-    @media (max-height: 660px) {
-        min-height: 110vh;
-    }
 }
 
 // //transition-group config:

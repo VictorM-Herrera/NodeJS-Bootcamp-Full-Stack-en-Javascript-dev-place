@@ -15,7 +15,7 @@ Router.post('/', [uploadMulter.single('image'), ValidateUser],controller.createU
 
 Router.post('/login', controller.userlogin);//public
 
-Router.put('/:id',[verifytoken], controller.updateUserById);//private
+Router.put('/:id',[verifytoken, uploadMulter.single('image')], controller.updateUserById);//private
 
 Router.delete('/:id',[verifytoken], controller.deleteUserById);//private
 

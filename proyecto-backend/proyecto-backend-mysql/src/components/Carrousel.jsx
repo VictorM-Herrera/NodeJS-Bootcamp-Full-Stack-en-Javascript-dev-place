@@ -1,9 +1,20 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { FreeMode } from 'swiper';
 import Card from './Card';
 
 export default function Carrousel() {
+    const [arrayProducts, setArrayProducts] = useState([]);
+    let cont = 0;
+    useEffect(() => {
+        fetch('http://localhost:5050/product')
+        .then((data) => data.json())
+        .then((products) => products.data)
+        .then((resp) => {
+          setArrayProducts(resp);
+        })
+      }, []);
+
   return (
     <div className='carrousel-box-center'>
         <h3>Productos destacados:</h3>
@@ -37,30 +48,19 @@ export default function Carrousel() {
 
                 }}  
             >
-                <SwiperSlide className='carrousel-card-center'>
-                    <Card/>
-                </SwiperSlide>
-                <SwiperSlide className='carrousel-card-center'>
-                    <Card/>
-                </SwiperSlide>
-                <SwiperSlide className='carrousel-card-center'>
-                    <Card/>
-                </SwiperSlide>
-                <SwiperSlide className='carrousel-card-center'>
-                    <Card/>
-                </SwiperSlide>
-                <SwiperSlide className='carrousel-card-center'>
-                    <Card/>
-                </SwiperSlide>
-                <SwiperSlide className='carrousel-card-center'>
-                    <Card/>
-                </SwiperSlide>
-                <SwiperSlide className='carrousel-card-center'>
-                    <Card/>
-                </SwiperSlide>
-                <SwiperSlide className='carrousel-card-center'>
-                    <Card/>
-                </SwiperSlide>
+                {arrayProducts.map((element, key) => {
+                    if(cont < 10)
+                    {      
+                        cont++;              
+                        return(
+                            <SwiperSlide className='carrousel-card-center'>
+                                <Card id={element.product_id} name={element.title} price= {element.price} image={element.image} key={key}/>
+                            </SwiperSlide>
+                        )
+                        
+                    }
+                })}
+
             </Swiper>
         </div>
     </div>
