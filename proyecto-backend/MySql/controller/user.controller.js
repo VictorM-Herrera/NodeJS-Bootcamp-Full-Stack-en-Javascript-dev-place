@@ -17,27 +17,28 @@ userController.getAllUsers = async (req,res) =>{
 }
 
 userController.createUser = async (req,res) => {
-    // try{
-    //     const modelData = { //esto ordena el json del body no importa como le llegue, (lo ordena para que se paresca a la bd)
-    //         first_name: req.body.first_name,
-    //         last_name: req.body.last_name,
-    //         email:req.body.email,
-    //         password: bcrypt.hashSync(req.body.password, 10)
-    //     }
+        // try{
+        //     const modelData = { //esto ordena el json del body no importa como le llegue, (lo ordena para que se paresca a la bd)
+        //         first_name: req.body.first_name,
+        //         last_name: req.body.last_name,
+        //         email:req.body.email,
+        //         password: bcrypt.hashSync(req.body.password, 10)
+        //     }
 
-    //     const response = await User.create(modelData)
-    //     .then((data)=> {
-    //         const res = { error: false, data: data, message: "Usuario creado"}
-    //         return res;
-    //     }).catch((error) => {
-    //         const res = {error: true, message: error}
-    //         return res;
-    //     })
-    //     res.json(response);
-    // }catch(err)
-    // {
-    //     console.log(err);
-    // }
+        //     const response = await User.create(modelData)
+        //     .then((data)=> {
+        //         const res = { error: false, data: data, message: "Usuario creado"}
+        //         return res;
+        //     }).catch((error) => {
+        //         const res = {error: true, message: error}
+        //         return res;
+        //     })
+        //     res.json(response);
+        // }catch(err)
+        // {
+        //     console.log(err);
+        // }
+
     try {
         let urlImage;
         if(req.file === undefined)
