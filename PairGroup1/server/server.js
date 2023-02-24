@@ -32,3 +32,4 @@ function encontrarProducto(req, res, next){
     });
     res.json(selectedItem);
 }
+//esta linea de codigo es para testear algo, no darle importancia
